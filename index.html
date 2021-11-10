@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Form</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <form>
+        <div class="container">
+            <h1>Login</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <p class="subLabel">(The username will be your email address)</p>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <label for="psw"><b>Password</b></label>
+            <p class="subLabel">Your password must be at least 8-16 characters long with a numeric value and special
+                symbol.</p>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <hr>
+            <button type="submit" class="registerbtn">Login</button>
+        </div>
+        <div class="signin">
+            <p>Don't have an account? <a href="register.php">Sign up</a>.</p>
+        </div>
+    </form>
+
+    <script src="./index.js" async defer></script>
+</body>
+
+</html>
