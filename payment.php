@@ -1,4 +1,4 @@
-<?php include('send_otp.php') ?>
+<?php include('card_details.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,21 +21,22 @@
 		<label class='control-label'>CVV</label>
 		<input type='number' name='cvv' class='form-control' required>
 		<label class='control-label'>Expiration Date</label>
-		<input type='date' name='expiration_date' class='form-control' required>
-		<button type='submit' class='btn btn-primary' name="otp" onclick='send_otp()'>Send OTP</button>
+		<input type='date' placeholder='mm-yyyy' name='expiry_date' class='form-control' required>
+		<button type='submit' class='btn btn-primary' name="otp" value="submit">Send OTP</button>
 		  </form>
 
-		  <div class='verify-otp'>
+		  <!-- <div class='verify-otp'>
               <label class='' >Enter OTP: </label>
 			  <input type='number' name='otp' class='get-otp' placeholder='Enter OTP' required>
 		    <button type='verify' onclick='submit_otp()'>Verify OTP</button>
       </div>
-  </div>
+  </div> -->
+<!--   
  <script>
    function send_otp(){
      var email = jQuery('#email').val();
      jQuery.ajax({
-       url: 'send_otp.php',
+       url: 'card_details.php',
        type: 'POST',
        data: 'email='+email,
        success: function(result){
@@ -60,7 +61,7 @@
        }
      });
    }
-   </script>
+   </script> -->
 
    <style>
     .verify-otp{
