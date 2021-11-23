@@ -67,3 +67,11 @@ form,
   border: 1px solid #3c763d;
   margin-bottom: 20px;
 }
+
+.container {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
