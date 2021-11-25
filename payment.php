@@ -19,7 +19,7 @@
 		<label class='control-label'>CVV</label>
 		<input type='number' name='cvv' class='form-control' placeholder='CVV Number' required>
 		<label class='control-label'>Expiration Date</label>
-		<input type='date' name='expiry_date' class='form-control' required>
+		<input type='date' name='expiry_date' class='form-control' placeholder='DD/MM/YYYY' required>
 		<button type='hidden' id='otp' class='btn btn-primary' name="otp" value=""  >Send OTP</button>
 		</form>
 
@@ -189,6 +189,13 @@ if($mail->Send()){
 ?>
 
   <style>
+body{
+  background: #FFEFBA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
     .verify-otp{
       display: none;
     }
@@ -205,10 +212,17 @@ if($mail->Send()){
       align-items: center;
       width: 1000px;
     }
+    form{
+      border-radius: 7px;
+    }
 
     .container .form-control {
       width: 100%;
       margin-bottom: 10px;
+    }
+
+    .form-control{
+      height: 30px;
     }
 
     .container .btn {
@@ -220,6 +234,11 @@ if($mail->Send()){
       width: 100%;
       justify-content: center;
       align-items: center;
+    }
+
+    a{
+      text-decoration: none;
+      color: white;
     }
 
   </style>

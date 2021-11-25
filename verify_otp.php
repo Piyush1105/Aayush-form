@@ -39,6 +39,16 @@
         }
     ?>
     <style>
+        body{
+            background: #ad5389;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+        }
+        h2{
+    color: white;
+}
         #container {
             margin-top: 100px;
             display: flex;
@@ -46,6 +56,12 @@
             flex-direction: column;
             width: 100%;
             align-items: center;
+        }
+        form{
+            border-radius: 7px;
+        }
+        input {
+            height: 30px;
         }
 
         label {

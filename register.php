@@ -35,5 +35,17 @@
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
   </form>
+
+  <style>
+	  body{
+		 
+		background-image: url("images/image2.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	  }
+	  .header {
+		  background: #e52d27;  }
+
+  </style>
 </body>
 </html>

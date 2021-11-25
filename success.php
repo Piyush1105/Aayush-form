@@ -11,12 +11,16 @@
 
     <style>
         body {
-            background-color: #f5f5f5;
+            background: #005C97;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #363795, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         }
         h1 {
             margin-top: 100px;
             text-align: center;
-            color: green;
+            color: white;
+            font-size: 50px;
         }
     </style>
     

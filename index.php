@@ -44,7 +44,17 @@
 	<button type="button" class="btn btn-primary" style='width: 100%; height: 100%; margin-top:20px;' onclick="window.location.href='payment.php'">Payment</button>
 	  </div>
 
+<style>
+	  body{
+	background: #00B4DB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+	  }
+	  .header {
+		  background: #e52d27;  }
+
+  </style>
 </div>
 </body>
 </html> 

@@ -27,5 +27,17 @@
   		Not yet a member? <a href="register.php">Sign up</a>
   	</p>
   </form>
+
+  <style>
+	  body{
+		 
+		background-image: url("images/image1.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	  }
+	  .header {
+		  background: #e52d27;  }
+
+  </style>
 </body>
 </html>
