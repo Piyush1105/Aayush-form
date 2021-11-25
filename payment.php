@@ -20,12 +20,12 @@
 		<input type='number' name='cvv' class='form-control' placeholder='CVV Number' required>
 		<label class='control-label'>Expiration Date</label>
 		<input type='date' name='expiry_date' class='form-control' required>
-		<button type='hidden' id='otp' class='btn btn-primary' name="otp" value="" >Send OTP</button>
+		<button type='hidden' id='otp' class='btn btn-primary' name="otp" value=""  >Send OTP</button>
 		</form>
 
+<button class="btn btn-primary" id="verifyOTP-btn"><a href="./verify_otp.php">Verify OTP</a></button>
+    
 <!-- otp generate to the console using RSA -->
-
-
 <script>
   function gcd (a, b)
   {
@@ -114,15 +114,16 @@
   var res = generate_key_pair(p,q);
   return res;
   }
-var got_otp = result();
-document.getElementById("otp").value = result();
+  var got_otp = result();
+  document.getElementById("otp").value = result();
 </script>
 <?php
     
+include('smtp/PHPMailerAutoload.php');
     if(isset($_POST['otp'])){
-    $random = "<script>return got_otp;</script>";
-    $otp = $random;
-    echo $otp;
+    // $random = "<script>return got_otp;</script>";
+    // $otp = $random;
+    // echo $otp;
     
     $card_number = "";
 
@@ -130,19 +131,72 @@ document.getElementById("otp").value = result();
 
       $otp = mysqli_real_escape_string($db, $_POST['otp']);
       $card_number = mysqli_real_escape_string($db, $_POST['card_number']);
-      
+      $email = mysqli_real_escape_string($db, $_POST['email']);
+
+
       $sql1 = "UPDATE card_details SET otp=$otp WHERE card_number='$card_number'";
       $results1 = mysqli_query($db, $sql1);
     }
+    
+    //SMTP code starts
+    $html=$otp;
 
+    $card_number = "";
+    $email= "";
+
+    $db = mysqli_connect('localhost', 'root', '', 'registration');
+
+    $otp = mysqli_real_escape_string($db, $_POST['otp']);
+    $card_number = mysqli_real_escape_string($db, $_POST['card_number']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+
+   
+    $sql2 = "SELECT email FROM card_details WHERE card_number='$card_number'";
+    $result2 = mysqli_query($db,$sql2);
+    
+    $to = $email;
+
+    
+    
+    echo smtp_mailer($to,'One-Time Password',$html);
+
+function smtp_mailer($to,$subject, $msg){
+$mail = new PHPMailer(); 
+$mail->SMTPDebug  = 0;
+$mail->IsSMTP(); 
+$mail->SMTPAuth = true; 
+$mail->SMTPSecure = 'tls'; 
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 587; 
+$mail->IsHTML(false);
+$mail->CharSet = 'UTF-8';
+$mail->Username = "gargaayush13012001@gmail.com";
+$mail->Password = "8689@Aay";
+$mail->SetFrom("gargaayush13012001@gmail.com");
+$mail->Subject = $subject;
+$mail->Body =$msg;
+$mail->AddAddress($to);
+$mail->SMTPOptions=array('ssl'=>array(
+  'verify_peer'=>false,
+  'verify_peer_name'=>false,
+  'allow_self_signed'=>false
+));
+if($mail->Send()){
+  echo " ";
+}
+}
+    
 ?>
 
-   <style>
+  <style>
     .verify-otp{
       display: none;
     }
 
-    
+    #verifyOTP-btn{
+      margin-top: 20px;
+      width: 300px;
+    }
 
     .container {
       display: flex;
@@ -168,6 +222,6 @@ document.getElementById("otp").value = result();
       align-items: center;
     }
 
-   </style>
+  </style>
 </body>
 </html>

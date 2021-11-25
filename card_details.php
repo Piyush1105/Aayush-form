@@ -27,12 +27,7 @@ $db = mysqli_connect('localhost', 'root', '', 'registration');
 
       $sql = "SELECT * FROM card_details WHERE card_number='$card_number' AND cvv='$cvv' AND expiry_date='$expiry_date'";
       $results = mysqli_query($db, $sql);
-      if(mysqli_num_rows($results) != 1){
-            echo "<script>alert('Credentials does not match')</script>";
-      }
-
-      $sql1 = "UPDATE card_details SET otp='$got_otp' WHERE card_number='$card_number'";
-            $results1 = mysqli_query($db, $sql1);
+      
       
         $db->close();
   ?> 
